@@ -1,5 +1,5 @@
 provider "google" {
-  project = "your-gcp-project-id"
+  project = "river-cycle-449821-m1"
   region  = "us-central1"
 }
 
