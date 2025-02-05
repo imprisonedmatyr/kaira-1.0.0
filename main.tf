@@ -21,9 +21,13 @@ resource "google_storage_bucket_object" "website_files" {
   source = "${path.module}/website/${each.value}"
 }
 
-resource "google_storage_bucket_website_configuration" "website_config" {
-  bucket = google_storage_bucket.library_website_bucket.name
+resource "google_storage_bucket" "website" {
+  name     = "your-bucket-name"
+  location = "US"
 
-  main_page_suffix = "index.html"
-  not_found_page   = "404.html"
+  website {
+    main_page_suffix = "index.html"
+    not_found_page   = "404.html"
+  }
 }
+
